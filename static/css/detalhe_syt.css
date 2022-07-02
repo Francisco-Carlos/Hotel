@@ -1,0 +1,75 @@
+.inicio{
+    display: grid;
+    grid-template-columns: 65rem auto;
+    max-width: 300rem;
+    margin: 0 auto;
+    margin-left: 5rem;
+    gap: 10px;
+    
+    margin-top: 20px;
+}
+.inicio > div{
+    width: auto;
+}
+img{
+    width: 600px;
+    border-radius: 1rem;
+}
+p{
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+}
+h3{
+    text-align: center;
+    font-size: 2rem;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.h4_id{
+    text-align: center;
+    font-size: 2rem;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.quart{
+    border: solid 1px;
+    border-radius: 1rem;
+    width: 35rem;
+}
+form{
+    border: solid 1px ;
+    border-radius: 1rem;
+    width: 60rem;
+    align-items: center;
+}
+label{
+    font-size: 1.5rem;
+    text-align: center;
+    
+}
+input{
+    width: 20rem;
+    margin-left: 0.5rem;
+    box-shadow: 1rem;
+    border-radius: 1rem;
+
+}
+input:focus{
+    border-radius: 1rem;
+}
+button{
+    background-color: rgb(71, 241, 3);
+    text-align: center;
+    width: 15rem;
+    margin-left: 22rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    
+}
+button:hover{
+    border-radius: 5px;
+    width: 20rem;
+    
+}

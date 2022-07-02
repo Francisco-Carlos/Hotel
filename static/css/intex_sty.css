@@ -1,0 +1,20 @@
+.icon_dev{
+    display: grid;
+    grid-template-columns: 30% 30% 30% 30%;
+    margin: 0 auto;
+    width: 900px;
+    margin-left: 8rem;
+    align-items: center;
+    gap: 20px;
+}
+.icons_dev > div{
+    width: auto;
+    
+    align-items: center;
+}
+
+.h1_id{
+    text-align: center;
+    font-size: 2cm;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

@@ -1,0 +1,74 @@
+{% extends 'heard_basic.html' %}
+
+{% block content %}
+{% load static %}
+    <style>
+        i{
+            font-size: 50px;
+            padding: 15px;
+            margin-left: 12px;
+        }
+        .img_id{
+            width: 35rem;
+            padding: 1rem;
+            border-radius: 3rem;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static '/css/detalhe_syt.css' %}">
+    <section class="inicio">
+        <div>
+            <img src="{{alug.Imagem.url}}" alt="{{alug.Tipo}}">
+        </div>
+        <div >
+            <h3>Quarto {{alug.Tipo}}</h3>
+            <p>{{alug.Caracter}}</p>
+            <hr>
+            <i class="fa fa-user" aria-hidden="true"> {{alug.Camas}}</i>
+
+            <i class="fa fa-wifi" aria-hidden="true"> Wi-fi</i>
+
+            <i class="fa fa-television" aria-hidden="true"> Tv </i>
+
+            <i class="fa fa-volume-control-phone" aria-hidden="true"> Telefone </i>
+
+            
+            <p>Por: </p>
+            <p>R$: {{alug.Preco}},00 </p>
+
+            {% if alug.Vago == False %}
+                <p>Disponibilidade: Ocupado</p>
+                <hr>
+            {% else %}
+                <form action="{% url 'Alugar' alug.id %}" method="POST">
+                    <h4 class="h4_id">Alugar o quarto</h4>
+                    {% csrf_token %}
+                        <label for="">Data de entrada:</label>
+                        <input type="date" name="Entrada" style="width: 15rem;">
+                    
+                        <label for="">Data de Saida</label>
+                        <input type="date" name="Saida" width="15rem;">
+        
+                    <button>Enviar</button>
+                </form>
+            {% endif %}
+
+            
+            
+        </div>
+    </section>
+    <hr>
+    <div class="container">
+        <h4 class="h4_id">Quartos que podem te interessar</h4>
+        {% for alug in quart %}
+            <a href="{% url 'Detalhes' alug.id %}"> <img class="img_id" src="{{alug.Imagem.url}}" alt="" srcset=""  ></a>
+        {% endfor %}
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    
+{% endblock %}

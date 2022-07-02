@@ -1,0 +1,26 @@
+.aces_id{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    gap: 20px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.acces_id > div{
+    width: auto;
+}
+label{
+    font-size: 0.5cm;
+    color: #fff;
+}
+h3{
+    color: #fff;
+}
+button{
+    border-radius: 2rem;
+}
+button:hover{
+    transition: 2s;
+    background-color: rgb(42, 207, 9);
+    border-radius: 5rem;
+}

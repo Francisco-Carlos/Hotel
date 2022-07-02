@@ -1,0 +1,84 @@
+{% extends 'heard_basic.html' %}
+{% block content %}
+    {% load static %}
+    <style>
+        h2{
+            font-size: 1cm;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: rgba(68, 68, 68, 0.527);
+            color: #ffff;
+            text-align: center;
+        }
+        .p_ids{
+            text-align: center;
+            font-size: 1cm;
+        }
+        .b_btn, .p_dat{
+            position: relative;
+            bottom: 6.5rem;
+            font-size: 0.4cm;
+        }
+        .das_id{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            margin: 0 auto;
+        }
+        .das_id> .d_id{
+            width: 150%;
+            
+        }
+    </style>
+    <div class="container">
+        <h2>Olá {{user.username}}</h2>
+        <hr>
+        <p class="p_ids">Veja os quartos que você reservou</p>
+        <section class="das_id">
+            {% for clin in cliente %}
+               
+                <div class="d_id">
+                    <div><img style="border-radius: 1rem;"  src="{{clin.Imagem.url}}" style="position: relative;"  alt="" srcset="" width="50%"></div>
+                    
+                    <p class="p_dat" style="font-size:0.6cm ; color:white;"> Data de Saida: {{clin.Data_de_saida}}</p>
+                    <a href="{% url 'Editar' clin.id %}" class="btn btn-success b_btn" target="_blank" >Editar</a>
+                    <a href="{% url 'Fechar' clin.id %}" class="btn btn-danger b_btn">Fechar Conta</a>
+                    
+                </div>
+            {% endfor %}
+        </section>
+    </div>
+
+    <!--Editar o quarto-->
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Alterar a estadia</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+              {% for cli in cliente %}
+                    <form action="{% url 'Editar' cli.id %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="">Data de Saida:</label>
+                            <input type="date" name="Saida" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-success">Editar</button>
+                    </form>
+              {% endfor%}
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+      
+          </div>
+        </div>
+    </div>
+{% endblock %}

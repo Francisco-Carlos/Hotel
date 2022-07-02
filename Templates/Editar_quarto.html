@@ -1,0 +1,113 @@
+{% extends 'heard_basic.html' %}
+{% block content %}
+    {% load static %}
+    <style>
+        .inicio{
+            display: grid;
+            grid-template-columns: 65rem auto;
+            max-width: 300rem;
+            margin: 0 auto;
+            margin-left: 5rem;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .inicio > div{
+            width: auto;
+        }
+        img{
+            width: 600px;
+            border-radius: 1rem;
+        }
+        p{
+            font-size: 2rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            
+        }
+        h3{
+            text-align: center;
+            font-size: 2rem;
+            font-family:'Times New Roman', Times, serif;
+        }
+
+        .h4_id{
+            text-align: center;
+            font-size: 2rem;
+            font-family:'Times New Roman', Times, serif;
+        }
+
+        .quart{
+            border: solid 1px;
+            border-radius: 1rem;
+            width: 35rem;
+        }
+        form{
+            border: solid 1px ;
+            border-radius: 1rem;
+            width: 50rem;
+            align-items: center;
+        }
+        label{
+            font-size: 1.5rem;
+            text-align: center;
+            
+        }
+        input{
+            width: 25rem;
+            margin-left: 0.5rem;
+            box-shadow: 1rem;
+            border-radius: 1rem;
+
+        }
+        input:focus{
+            border-radius: 1rem;
+        }
+        button{
+            background-color: rgb(71, 241, 3);
+            text-align: center;
+            width: 15rem;
+            margin-left: 15rem;
+            font-size: 1rem;
+            border-radius: 1rem;
+            padding: 0.5rem;
+            
+        }
+        button:hover{
+            border-radius: 5px;
+            width: 20rem;
+            
+        }
+    </style>
+    <div class="container">
+        <h1>Infomaçoes do seu quarto</h1>
+        <section class="inicio">
+            <div>
+                <img src="{{alugar.Imagem.url}}" alt="{{alug.Tipo}}">
+            </div>
+            <div >
+                <h3>Quarto {{alugar.Tipo}}</h3>
+                <p>{{alugar.Caracter}}</p>
+                <hr>
+                <i class="fa fa-user" aria-hidden="true"> {{alugar.Camas}}</i>
+    
+                <i class="fa fa-wifi" aria-hidden="true"> Wi-fi</i>
+    
+                <i class="fa fa-television" aria-hidden="true"> Tv </i>
+    
+                <i class="fa fa-volume-control-phone" aria-hidden="true"> Telefone </i>
+                
+                <p> R$:{{alugar.Preco}},00</p>
+                <p>Seu tempo de estadia: </p>
+                <p>{{alugar.Data_de_entrada}}  ate {{alugar.Data_de_saida}}</p>
+                <hr>
+                <form action="{% url 'Editar' alugar.id %}" method="POST">
+                    {% csrf_token %}
+                    <p>Prolongar a estadia ate quando:</p><br>
+                    <label for="">Data de Saida</label>
+                    <input type="date" name="Saida" width="15rem;">
+            
+                    <button>Enviar</button>
+                </form>
+            </div>
+        </section>
+    </div>    
+{% endblock %}

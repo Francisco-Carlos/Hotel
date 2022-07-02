@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous' ></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <!--Bost_text-->
+   
+    
+    <title>Hotel Seth</title>
+</head>
+<style>
+    body, ul, li, p {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+    .p_id{
+        text-decoration: none;
+        color: rgb(253, 253, 253);
+    }
+    .header{
+        background-color: rgb(2, 102, 102);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 10px;
+    }
+    .menu{
+        display: flex;
+    }
+    .menu li{
+        margin-left: 18px;
+    }
+    .menu li a{
+        display: block;
+        padding: 10px;
+        
+    }
+    .body_id{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 30px;
+    }
+    .menu_id{
+        display: flex;
+    }
+    .menu_id li{
+        margin-left: 20px;
+    }
+    .menu_id li a{
+        display: block;
+        font-size: 20px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        color: rgb(19, 18, 18);
+    }
+    .inc_foot{
+        display: grid;
+        grid-template-columns: 30% 40% 30%;
+        margin: 0 auto;
+        align-items: center;
+        margin-top: 10px;
+        gap: 10px;
+        background-color: black;
+        color: #ffff;
+        padding: 30px;
+    }
+    .inc_foot >div{
+        width: auto;
+        margin-top: 5px;
+    }
+    p{
+        font-size: 20px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-top: 2px;
+    }
+    .logo{
+        width: 90px;
+    }
+</style>
+<header class="header">
+    <p class="p_id">Telefone: (11) 3258-9517 </p>
+    <nav>
+        <ul class="menu">
+            <li><p class="p_id">Whatshapp: (11) 98784-1125 </p></li>
+            <li><p class="p_id">Email: sethhotel@gmail.com</p></li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <section class="body_id" >
+        <div><a href="/"><img class="logo" src="{% static 'Seth.png' %}" alt="" ></a></div>
+        <div>
+            <ul class="menu_id">
+                <li><a href="{% url 'Acomodacao' %}">Acomodações</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'Dashbord' %}">Dashbord</a></li>
+                    <li><a href="{% url 'Sair' %}">Sair</a></li>
+                {% else %}
+                    <li><a href="{% url 'Acesso' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </section>
+    {% block content %}{% endblock %}
+</body>
+<footer>
+    <section class="inc_foot">
+        <div>
+            <h4>Contatos</h4>
+            <p class="p_id"> Email: sethhotel@gmail.com</p>
+            <p class="p_id">Telefone: (11) 98784-1125</p>
+            <p class="p_id">Seth Hotel 2022</p>
+        </div>
+        <div>
+            <a href="/"><img  class="logo" style="margin-left: 10rem;" src="{% static 'Seth_1.png' %}" alt=""></a>
+        </div>
+        <div>
+            <h4>Redes</h4>
+            <i class="fa fas" style="font-size: 34px;color: green;"></i>
+            <i class="fa fas " style="font-size: 34px;color:blue;margin-left: 10px;"> </i>
+            <!--<i style="font-size:24px" class="fa">&#xf2b9;</i>-->
+            
+        </div>
+    </section>
+</footer>
+</html>

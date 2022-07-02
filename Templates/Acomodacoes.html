@@ -1,0 +1,47 @@
+{% extends 'heard_basic.html' %}
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/acess_sty.css' %}">
+    <style>
+        .aces_id{
+            display: grid;
+            padding: 10px;
+            grid-template-columns: 45% 45%;
+        }
+        .aces_id >div{
+            width: 110%;
+            margin-top: 10px;
+            margin-left: 5rem;
+        }
+        .a_aco, h3{
+            padding: 2px;
+            color: rgb(15, 15, 15);
+            text-decoration: none;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 0.8cm;
+            align-items: center;
+            margin-left: 25rem;
+            
+
+        }
+        .a_aco:hover{
+            color: rgb(2, 122, 52);
+        }
+    </style>
+    
+        <h3>Filtrar por</h3>
+        <hr>
+        <a class="a_aco" href="{% url 'Camas' %}" > Camas</a>
+        <a class="a_aco" href="{% url 'Quarto' %}">Tipo de quarto</a>
+        <a class="a_aco" href="{% url 'Valor' %}">Valor</a>
+        
+    <section class="aces_id">
+        
+        {% for alug in alugar%}
+            <div class="container">
+                <img src="{{alug.Imagem.url}}" alt="">
+                <div class="overlay"> <a href="{% url 'Detalhes' alug.id %}"> {{alug.Tipo}}  {{alug.Camas}} Camas </a> </div>
+            </div>
+        {% endfor%}
+    </section>
+{% endblock %}
