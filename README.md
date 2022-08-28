@@ -230,7 +230,7 @@ urlpatterns = [
  - [x] Pagina dos detalhes dos quartos
  - [x] Dashbord
  
- ### Pagina principal com o foco de ser atrativa
+ ### Pagina Principal com o foco em ser atrativa
  ![Site Hotel -Index](https://user-images.githubusercontent.com/30003984/187050937-5f8e98ca-d045-418c-beee-ee8d7d08b8ad.png)
  
  Nessa pagina esta todas as informações do site , ao passar o mause nas imagens do quarto elas expandiram.
